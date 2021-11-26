@@ -1,0 +1,60 @@
+<h1 mat-dialog-title><strong>{{action}}</strong></h1>
+<div mat-dialog-content>
+  <mat-form-field *ngIf="add==true || edit==true">
+    <input placeholder="healthIndex" matInput [(ngModel)]="local_data.healthIndex">
+  </mat-form-field>
+  <mat-form-field *ngIf="add==true || edit==true">
+    <input placeholder="endDate" matInput [(ngModel)]="local_data.endDate">
+  </mat-form-field>
+  <mat-form-field *ngIf="add==true || edit==true">
+    <input placeholder="minValueDateTime" matInput [(ngModel)]="local_data.minValueDateTime">
+  </mat-form-field>
+  <mat-form-field *ngIf="add==true || edit==true">
+    <input placeholder="type" matInput [(ngModel)]="local_data.type">
+  </mat-form-field>
+  <mat-form-field *ngIf="add==true">
+    <input placeholder="cowId" matInput [(ngModel)]="local_data.cowId">
+  </mat-form-field>
+  <mat-form-field *ngIf="add==true">
+    <input placeholder="animalId" matInput [(ngModel)]="local_data.animalId">
+  </mat-form-field>
+  <mat-form-field *ngIf="add==true">
+    <input placeholder="eventId" matInput [(ngModel)]="local_data.eventId">
+  </mat-form-field>
+  <mat-form-field *ngIf="add==true || edit==true">
+    <input placeholder="deletable" matInput [(ngModel)]="local_data.deletable">
+  </mat-form-field>
+  <mat-form-field *ngIf="add==true || edit==true">
+    <input placeholder="lactationNumber" matInput [(ngModel)]="local_data.lactationNumber">
+  </mat-form-field>
+  <mat-form-field *ngIf="add==true || edit==true">
+    <input placeholder="daysInLactation" matInput [(ngModel)]="local_data.daysInLactation">
+  </mat-form-field>
+  <mat-form-field *ngIf="add==true || edit==true">
+    <input placeholder="ageInDays" matInput [(ngModel)]="local_data.ageInDays">
+  </mat-form-field>
+  <mat-form-field *ngIf="add==true || edit==true">
+    <input placeholder="startDateTime" matInput [(ngModel)]="local_data.startDateTime">
+  </mat-form-field>
+  <mat-form-field *ngIf="add==true || edit==true">
+    <input placeholder="reportingDateTime" matInput [(ngModel)]="local_data.reportingDateTime">
+  </mat-form-field>
+
+</div>
+<div mat-dialog-actions>
+    <div *ngIf="doc==true">
+        1. Angular 11 CLI environment<br>
+        2. Angular Material 11<br>
+        3. Mock DataBase with Backend:<br>
+            <p>* npm install -g json-server</p>
+            <p>* npm run json-server</p>
+            <p>* data location: http://localhost:3000/result</p>
+    </div>
+    <p *ngIf="delete==true">Are you sure you want to delete?</p><br>
+    <button *ngIf="delete==true" mat-raised-button color="warn" style="margin-left: 20px;" (click)="doAction()">{{action}}</button>
+    <button *ngIf="add==true" mat-raised-button color="primary" style="margin-left: 20px;" (click)="doAction()">{{action}}</button>
+    <button *ngIf="edit==true" mat-raised-button color="primary" style="margin-left: 20px;" (click)="doAction()">{{action}}</button>
+    <button mat-raised-button color="basic" (click)="closeDialog()" mat-flat-button>Cancel</button>
+</div>
+
+

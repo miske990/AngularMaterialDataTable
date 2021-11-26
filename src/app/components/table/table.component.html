@@ -1,0 +1,108 @@
+<div class="example-header" fxLayout="row">
+    <mat-toolbar class="toolbar">
+        <mat-toolbar-row>
+            <button mat-raised-button (click)="openDialog('Documentation', {})" mat-flat-button color="basic">Documentation</button>
+            <span class="example-spacer"></span>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    
+    <div class="add_new"><button mat-button (click)="openDialog('Add',{})" mat-flat-button color="primary">Add New</button></div>
+    
+    <div class="content mat-elevation-z8">
+    
+        <table mat-table [dataSource]="dataLimit" #table class="table">
+    
+        <ng-container matColumnDef="healthIndex">
+            <mat-header-cell *matHeaderCellDef>HealthIndex</mat-header-cell>
+            <mat-cell *matCellDef="let element" data-label="HealthIndex"> {{element.healthIndex}} </mat-cell>
+        </ng-container>
+          
+        <ng-container matColumnDef="endDate">
+            <mat-header-cell *matHeaderCellDef> EndDate </mat-header-cell>
+            <mat-cell *matCellDef="let element" data-label="EndDate"> {{element.endDate}} </mat-cell>
+        </ng-container>
+          
+        <ng-container matColumnDef="minValueDateTime">
+            <mat-header-cell *matHeaderCellDef> MinValueDateTime </mat-header-cell>
+            <mat-cell *matCellDef="let element" data-label="MinValueDateTime"> {{element.minValueDateTime}} </mat-cell>
+        </ng-container>
+          
+        <ng-container matColumnDef="type">
+            <mat-header-cell *matHeaderCellDef> Type </mat-header-cell>
+            <mat-cell *matCellDef="let element" data-label="Type"> {{element.type}} </mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef="cowId">
+            <mat-header-cell *matHeaderCellDef> CowId </mat-header-cell>
+            <mat-cell *matCellDef="let element" data-label="CowId"> {{element.cowId}} </mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef="animalId">
+            <mat-header-cell *matHeaderCellDef> AnimalId </mat-header-cell>
+            <mat-cell *matCellDef="let element" data-label="AnimalId"> {{element.animalId}} </mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef="eventId">
+            <mat-header-cell *matHeaderCellDef> EventId </mat-header-cell>
+            <mat-cell *matCellDef="let element" data-label="EventId"> {{element.eventId}} </mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef="deletable">
+            <mat-header-cell *matHeaderCellDef> Deletable </mat-header-cell>
+            <mat-cell *matCellDef="let element" data-label="Deletable"> {{element.deletable}} </mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef="lactationNumber">
+            <mat-header-cell *matHeaderCellDef> LactationNumber </mat-header-cell>
+            <mat-cell *matCellDef="let element" data-label="LactationNumber"> {{element.lactationNumber}} </mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef="daysInLactation">
+            <mat-header-cell *matHeaderCellDef> DaysInLactation </mat-header-cell>
+            <mat-cell *matCellDef="let element" data-label="DaysInLactation"> {{element.daysInLactation}} </mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef="ageInDays">
+            <mat-header-cell *matHeaderCellDef> AgeInDays </mat-header-cell>
+            <mat-cell *matCellDef="let element" data-label="AgeInDays"> {{element.ageInDays}} </mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef="startDateTime">
+            <mat-header-cell *matHeaderCellDef> StartDateTime </mat-header-cell>
+            <mat-cell *matCellDef="let element" data-label="StartDateTime"> {{element.startDateTime}} </mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef="reportingDateTime">
+            <mat-header-cell *matHeaderCellDef> ReportingDateTime </mat-header-cell>
+            <mat-cell *matCellDef="let element" data-label="ReportingDateTime"> {{element.reportingDateTime}} </mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef="delete">
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let element; let i = index;" data-label="">
+              <button mat-icon-button color="warn" (click)="openDialog('Delete',element)"><mat-icon>delete</mat-icon></button>
+            </mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef="update">
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let element; let i = index;" data-label="">
+              <button mat-icon-button color="primary" (click)="openDialog('Update',element)"><mat-icon>edit</mat-icon></button>
+            </mat-cell>
+        </ng-container>
+    
+    
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </table>
+    
+        <mat-paginator [pageSizeOptions]="[10, 20]" [pageSize]="10" showFirstLastButtons></mat-paginator>
+    
+    </div>
+    
+    <div class="footer">
+        © 2021
+    </div>
+</div>
+
+

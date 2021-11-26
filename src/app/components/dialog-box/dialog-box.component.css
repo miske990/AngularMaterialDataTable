@@ -1,0 +1,9 @@
+.mat-dialog-content {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.mat-dialog-actions {
+    justify-content: space-between;
+}
+
