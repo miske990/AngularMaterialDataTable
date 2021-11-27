@@ -14,7 +14,14 @@
     
         <ng-container matColumnDef="healthIndex">
             <mat-header-cell *matHeaderCellDef>HealthIndex</mat-header-cell>
-            <mat-cell *matCellDef="let element" data-label="HealthIndex"> {{element.healthIndex}} </mat-cell>
+            <mat-cell *matCellDef="let element" data-label="HealthIndex"> {{element.healthIndex}} 
+
+                <!-- EXAMPLE IF WE WANT TO EDIT DATA INLINE TABLE, WITHOUT MAT_DIALOG -->
+                <!-- <mat-form-field floatLabel="never">
+                    <input matInput placeholder="HealthIndex" formControlName="healthIndex">
+                </mat-form-field> -->
+                
+            </mat-cell>
         </ng-container>
           
         <ng-container matColumnDef="endDate">

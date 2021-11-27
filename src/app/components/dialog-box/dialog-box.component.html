@@ -1,44 +1,58 @@
 <h1 mat-dialog-title><strong>{{action}}</strong></h1>
 <div mat-dialog-content>
-  <mat-form-field *ngIf="add==true || edit==true">
-    <input placeholder="healthIndex" matInput [(ngModel)]="local_data.healthIndex">
-  </mat-form-field>
-  <mat-form-field *ngIf="add==true || edit==true">
-    <input placeholder="endDate" matInput [(ngModel)]="local_data.endDate">
-  </mat-form-field>
-  <mat-form-field *ngIf="add==true || edit==true">
-    <input placeholder="minValueDateTime" matInput [(ngModel)]="local_data.minValueDateTime">
-  </mat-form-field>
-  <mat-form-field *ngIf="add==true || edit==true">
-    <input placeholder="type" matInput [(ngModel)]="local_data.type">
-  </mat-form-field>
-  <mat-form-field *ngIf="add==true">
-    <input placeholder="cowId" matInput [(ngModel)]="local_data.cowId">
-  </mat-form-field>
-  <mat-form-field *ngIf="add==true">
-    <input placeholder="animalId" matInput [(ngModel)]="local_data.animalId">
-  </mat-form-field>
-  <mat-form-field *ngIf="add==true">
-    <input placeholder="eventId" matInput [(ngModel)]="local_data.eventId">
-  </mat-form-field>
-  <mat-form-field *ngIf="add==true || edit==true">
-    <input placeholder="deletable" matInput [(ngModel)]="local_data.deletable">
-  </mat-form-field>
-  <mat-form-field *ngIf="add==true || edit==true">
-    <input placeholder="lactationNumber" matInput [(ngModel)]="local_data.lactationNumber">
-  </mat-form-field>
-  <mat-form-field *ngIf="add==true || edit==true">
-    <input placeholder="daysInLactation" matInput [(ngModel)]="local_data.daysInLactation">
-  </mat-form-field>
-  <mat-form-field *ngIf="add==true || edit==true">
-    <input placeholder="ageInDays" matInput [(ngModel)]="local_data.ageInDays">
-  </mat-form-field>
-  <mat-form-field *ngIf="add==true || edit==true">
-    <input placeholder="startDateTime" matInput [(ngModel)]="local_data.startDateTime">
-  </mat-form-field>
-  <mat-form-field *ngIf="add==true || edit==true">
-    <input placeholder="reportingDateTime" matInput [(ngModel)]="local_data.reportingDateTime">
-  </mat-form-field>
+
+<form [formGroup]="formGroup"  fxLayout="column" (ngSubmit)="submit(formGroup.value)" class="form">
+    <div style="display: flex;flex-direction: column;">
+        <mat-form-field *ngIf="add==true || edit==true" class="form-element">
+            <input matInput placeholder="healthIndex" formControlName="healthIndex">
+        </mat-form-field>
+    
+        <mat-form-field *ngIf="add==true || edit==true" class="form-element">
+            <input matInput placeholder="endDate" formControlName="endDate">
+        </mat-form-field>
+
+        <mat-form-field *ngIf="add==true || edit==true" class="form-element">
+            <input matInput placeholder="minValueDateTime" formControlName="minValueDateTime">
+        </mat-form-field>
+
+        <mat-form-field *ngIf="add==true || edit==true" class="form-element">
+            <input matInput placeholder="type" formControlName="type">
+        </mat-form-field>
+
+        <mat-form-field *ngIf="add==true || edit==true" class="form-element">
+            <input matInput placeholder="cowId" formControlName="cowId">
+        </mat-form-field>
+
+        <mat-form-field *ngIf="add==true || edit==true" class="form-element">
+            <input matInput placeholder="animalId" formControlName="animalId">
+        </mat-form-field>
+
+        <mat-form-field *ngIf="add==true || edit==true" class="form-element">
+            <input matInput placeholder="eventId" formControlName="eventId">
+        </mat-form-field>
+
+        <mat-form-field *ngIf="add==true || edit==true" class="form-element">
+            <input matInput placeholder="deletable" formControlName="deletable">
+        </mat-form-field>
+
+        <mat-form-field *ngIf="add==true || edit==true" class="form-element">
+            <input matInput placeholder="lactationNumber" formControlName="lactationNumber">
+        </mat-form-field>
+
+        <mat-form-field *ngIf="add==true || edit==true" class="form-element">
+            <input matInput placeholder="daysInLactation" formControlName="daysInLactation">
+        </mat-form-field>
+
+        <mat-form-field *ngIf="add==true || edit==true" class="form-element">
+            <input matInput placeholder="startDateTime" formControlName="startDateTime">
+        </mat-form-field>
+
+        <mat-form-field *ngIf="add==true || edit==true" class="form-element">
+            <input matInput placeholder="reportingDateTime" formControlName="reportingDateTime">
+        </mat-form-field>
+    </div>
+
+</form>
 
 </div>
 <div mat-dialog-actions>

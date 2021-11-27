@@ -1,4 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 export interface Table {
@@ -24,6 +25,7 @@ export interface Table {
 })
 export class DialogBoxComponent implements OnInit {
 
+  formGroup!: FormGroup;
   action: string;
   local_data: any;
   delete: boolean = false;
@@ -33,7 +35,7 @@ export class DialogBoxComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<DialogBoxComponent>,
-
+    private formBuilder: FormBuilder,
     @Inject(MAT_DIALOG_DATA) public data: Table) {
     this.local_data = {...data};
     this.action = this.local_data.action;
@@ -49,7 +51,7 @@ export class DialogBoxComponent implements OnInit {
   }
 
   doAction(){
-    this.dialogRef.close({event:this.action,data:this.local_data});
+    this.dialogRef.close({event:this.action,data:this.formGroup.value});
   }
 
   closeDialog(){
@@ -57,6 +59,31 @@ export class DialogBoxComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.createForm();
+  }
+
+  createForm() {
+    this.formGroup = this.formBuilder.group({
+      'healthIndex': [this.local_data.healthIndex || ''],
+      'endDate': [this.local_data.endDate || ''],
+      'minValueDateTime': [this.local_data.minValueDateTime || ''],
+      'type': [this.local_data.type || ''],
+      'cowId': [this.local_data.cowId || ''],
+      'animalId': [this.local_data.animalId || ''],
+      'eventId': [this.local_data.eventId || ''],
+      'deletable': [this.local_data.deletable || ''],
+      'lactationNumber': [this.local_data.lactationNumber || ''],
+      'daysInLactation': [this.local_data.daysInLactation || ''],
+      'ageInDays': [this.local_data.ageInDays || ''],
+      'startDateTime': [this.local_data.startDateTime || ''],
+      'reportingDateTime': [this.local_data.reportingDateTime || ''],
+
+    });
+  }
+
+  submit(value: any) {
+    this.dialogRef.close(value);
+
   }
 
 }

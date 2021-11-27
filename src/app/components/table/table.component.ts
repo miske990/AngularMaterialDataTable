@@ -16,7 +16,7 @@ import { DialogBoxComponent } from '../dialog-box/dialog-box.component';
 export class TableComponent  implements OnInit {
   
   tableData: any;
-  dataLimit = new MatTableDataSource<Table>([]);
+  dataLimit = new MatTableDataSource<any>([]);
 
   @ViewChild(MatPaginator, {static:false}) paginator!: MatPaginator;
   @ViewChild('table',{static:true}) table!: MatTable<any>;
@@ -102,13 +102,16 @@ export class TableComponent  implements OnInit {
   }
 
   deleteRowData(row_obj: any){
-    this.dataLimit.data.forEach((value: any, index: any) => {
-      if(JSON.stringify(row_obj) === JSON.stringify(value)){
+    console.log(row_obj)
+    console.log(this.dataLimit.data)
+
+    for(var i=0;i<this.dataLimit.data.length;i++){
+      if(this.dataLimit.data[i].action === "Delete"){
         const data = this.dataLimit.data;
-        data.splice(index, 1);
+        data.splice(this.dataLimit.data[i], 1);
         this.dataLimit.data = data;
       }
-    });
+    }
   }
 
   updateRowData(row_obj: any){
