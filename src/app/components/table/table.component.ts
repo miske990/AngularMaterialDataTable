@@ -102,9 +102,6 @@ export class TableComponent  implements OnInit {
   }
 
   deleteRowData(row_obj: any){
-    console.log(row_obj)
-    console.log(this.dataLimit.data)
-
     for(var i=0;i<this.dataLimit.data.length;i++){
       if(this.dataLimit.data[i].action === "Delete"){
         const data = this.dataLimit.data;

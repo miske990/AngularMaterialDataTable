@@ -20,15 +20,15 @@
         </mat-form-field>
 
         <mat-form-field *ngIf="add==true || edit==true" class="form-element">
-            <input matInput placeholder="cowId" formControlName="cowId">
+            <input matInput placeholder="cowId" formControlName="cowId" [readonly]="edit==true">
         </mat-form-field>
 
         <mat-form-field *ngIf="add==true || edit==true" class="form-element">
-            <input matInput placeholder="animalId" formControlName="animalId">
+            <input matInput placeholder="animalId" formControlName="animalId" [readonly]="edit==true">
         </mat-form-field>
 
         <mat-form-field *ngIf="add==true || edit==true" class="form-element">
-            <input matInput placeholder="eventId" formControlName="eventId">
+            <input matInput placeholder="eventId" formControlName="eventId" [readonly]="edit==true">
         </mat-form-field>
 
         <mat-form-field *ngIf="add==true || edit==true" class="form-element">
